@@ -62,3 +62,23 @@ void Ajouter_tache()
     numTache++;
     printf(" la tache ajoutee avec succes.\n");
 }
+
+// ################ Afficher #################
+void Affichage_tache()
+{
+   if (numTache == 0)
+   {
+       printf("vide!!!\n");
+   }
+    printf("Les taches :\n");
+    for (int i = 0; i < numTache; i++)
+    {
+        printf("Titre de tache: %s \nDescription de tache: %s \nPriorite de tache: %s \nLa date d'echeance est: %d/%d/%d\n",
+               listTache[i].nom,
+               listTache[i].dsc,
+               listTache[i].priorite,
+               listTache[i].dateEcheance.jour,
+               listTache[i].dateEcheance.mois,
+               listTache[i].dateEcheance.annee);
+    }
+}
