@@ -82,3 +82,56 @@ void Affichage_tache()
                listTache[i].dateEcheance.annee);
     }
 }
+
+void Modifier_tache()
+{
+    char nv_nom[50];
+
+    printf("Entrer le Titre de la tache a modifier : ");
+    scanf(" %[^\n]s", nv_nom);
+
+    int i;
+    for (i = 0; i < numTache; i++)
+    {
+        if (strcmp(listTache[i].nom, nv_nom) == 0)
+        {
+            printf("Nouveau titre est :");
+            scanf(" %[^\n]s", listTache[i].nom);
+            printf("Nouvelle description est :");
+            scanf(" %[^\n]s", listTache[i].dsc);
+            printf("Nouvelle priorite est :");
+            scanf(" %[^\n]s", listTache[i].priorite);
+            printf("entrer la date d' echeance :\n");
+            // scanf("%d/%d/%d", &listTache[numTache].dateEcheance.jour,
+            //       &listTache[numTache].dateEcheance.mois,
+            //       &listTache[numTache].dateEcheance.annee);
+
+            printf("Jour: (entre 1 et 31) ");
+            scanf("%2d", &listTache[numTache].dateEcheance.jour);
+            // Virifie si le jour entre 1 et 31
+            if (listTache[numTache].dateEcheance.jour < 1 || listTache[numTache].dateEcheance.jour > 31)
+            {
+                printf("Jour invalid. Entrer un jour entre 1 et 31.\n");
+                return;
+            }
+            printf("Mois: (entre 1 et 12) ");
+            scanf("%2d", &listTache[numTache].dateEcheance.mois);
+            // Virifie si le mois entre 1 et 12
+            if (listTache[numTache].dateEcheance.mois < 1 || listTache[numTache].dateEcheance.mois > 12)
+            {
+                printf("Mois invalid. Entrer un mois entre 1 et 12.\n");
+                return;
+            }
+            printf("Annee: (entre 2023 et 2024) ");
+            scanf("%4d", &listTache[numTache].dateEcheance.annee);
+            // Virifie si l'annee entre  2023 et 2024
+            if (listTache[numTache].dateEcheance.annee < 2023 || listTache[numTache].dateEcheance.annee > 2024)
+            {
+                printf("Annee invelid. Entrer annee entre 2023 et 2024.\n");
+                return;
+            }
+            printf("Tache de titre %s modifiee avec succes.\n", nv_nom);
+            break;
+        }
+    }
+}
