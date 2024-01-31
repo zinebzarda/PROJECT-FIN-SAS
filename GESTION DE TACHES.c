@@ -248,3 +248,65 @@ void FiltrerParDate()
         }
     }
 }
+
+void menu()
+{
+    int choix;
+    while (choix != 8)
+    {
+       printf("|------------------------- MENU ----------------------------|\n"
+               "| \033[92m           1 : Ajouter une tache                       \033[0m   |\n"
+               "| \033[92m           2 : Afficher la tache                       \033[0m   |\n"
+               "| \033[92m           3 : Modifier la tache                       \033[0m   |\n"
+               "| \033[91m           4 : Supprimer la tache                      \033[0m   |\n"
+               "| \033[92m           5 : Ordonner la tache par date              \033[0m   |\n"
+               "| \033[92m           6 : Filtrer la tache par prioriter          \033[0m   |\n"
+               "| \033[92m           7 : Filtrer la tache par date               \033[0m   |\n"
+               "| \033[91m           8 : quitter                                 \033[0m   |\n"
+               "|               votre choix SVP [1-8] :                     |\n"
+               "|_____________________|\n");
+
+        printf("\n-->> : ");
+        scanf("%d", &choix);
+        printf("  *************\n");
+        if (choix == 0)
+            choix = 8;
+
+        switch (choix)
+        {
+        case 1:
+            Ajouter_tache();
+            break;
+        case 2:
+            Affichage_tache();
+            break;
+        case 3:
+            Modifier_tache();
+            break;
+        case 4:
+            Supprimer_tache();
+            break;
+        case 5:
+            OrdonnerDate();
+            break;
+        case 6:
+            FiltrerParPrioriter();
+            break;
+        case 7:
+            FiltrerParDate();
+            break;
+        case 8:
+            printf("Au revoir\n");
+            break;
+        default:
+            printf("Entree invalide !! entre [1-8] svp\n");
+        }
+    }
+}
+
+int main()
+{
+    menu();
+
+    return 0;
+}
