@@ -160,3 +160,23 @@ void Supprimer_tache()
     if (i == numTache)
         printf("Tache de titre %s non trouvee.\n", nv_nom);
 }
+void OrdonnerDate()
+{
+    Tache temp;
+    for (int i = 0; i < numTache - 1; i++)
+    {
+        for (int j = i + 1; j < numTache; j++)
+        {
+            if (listTache[i].dateEcheance.annee > listTache[j].dateEcheance.annee ||
+                (listTache[i].dateEcheance.annee == listTache[j].dateEcheance.annee && listTache[i].dateEcheance.mois > listTache[j].dateEcheance.mois) ||
+                (listTache[i].dateEcheance.annee == listTache[j].dateEcheance.annee && listTache[i].dateEcheance.mois == listTache[j].dateEcheance.mois && listTache[i].dateEcheance.jour > listTache[j].dateEcheance.jour))
+            {
+
+                temp = listTache[i];
+                listTache[i] = listTache[j];
+                listTache[j] = temp;
+            }
+        }
+    }
+    printf("Les tache a ete trie par Date d'echeance.\n ");
+}
