@@ -180,3 +180,71 @@ void OrdonnerDate()
     }
     printf("Les tache a ete trie par Date d'echeance.\n ");
 }
+
+
+void FiltrerParPrioriter()
+{
+    char nv_prioriter[50];
+
+    printf("Entrer le prioriter de la tache :\n ");
+    scanf(" %[^\n]s", nv_prioriter);
+
+    ;
+    for (int i = 0; i < numTache; i++)
+    {
+        if (strcmp(listTache[i].priorite, nv_prioriter) == 0)
+        {
+            printf("Titre de tache: %s || Description de tache: %s ||  Priorite de tache: %s ||  La date d'echeance est: %d/%d/%d\n",
+                   listTache[i].nom,
+                   listTache[i].dsc,
+                   listTache[i].priorite,
+                   listTache[i].dateEcheance.jour,
+                   listTache[i].dateEcheance.mois,
+                   listTache[i].dateEcheance.annee);
+        }
+    }
+}
+
+//  ################ Filtrer par Date #################
+void FiltrerParDate()
+{
+    int nv_jour, nv_mois, nv_annee;
+    printf("Jour: (entre 1 et 31) ");
+    scanf("%2d", &nv_jour);
+    // Virifie si le jour entre 1 et 31
+    if (nv_jour < 1 || nv_jour > 31)
+    {
+        printf("Jour invalid. Entrer un jour entre 1 et 31.\n");
+        return;
+    }
+    printf("Mois: (entre 1 et 12) ");
+    scanf("%2d", &nv_mois);
+    // Virifie si le mois entre 1 et 12
+    if (nv_mois < 1 || nv_mois > 12)
+    {
+        printf("Mois invalid. Entrer un mois entre 1 et 12.\n");
+        return;
+    }
+    printf("Annee: (entre 2023 et 2024) ");
+    scanf("%4d", &nv_annee);
+    // Virifie si l'annee entre  2023 et 2024
+    if (nv_annee < 2023 || nv_annee > 2024)
+    {
+        printf("Annee invelid. Entrer annee entre 2023 et 2024.\n");
+        return;
+    }
+    printf("\n");
+    for (int i = 0; i < numTache; i++)
+    {
+        if (listTache[i].dateEcheance.jour == nv_jour && listTache[i].dateEcheance.mois == nv_mois && listTache[i].dateEcheance.annee == nv_annee)
+        {
+            printf("Titre de tache: %s || Description de tache: %s ||  Priorite de tache: %s ||  La date d'echeance est: %d/%d/%d\n",
+                   listTache[i].nom,
+                   listTache[i].dsc,
+                   listTache[i].priorite,
+                   listTache[i].dateEcheance.jour,
+                   listTache[i].dateEcheance.mois,
+                   listTache[i].dateEcheance.annee);
+        }
+    }
+}
