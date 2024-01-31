@@ -62,7 +62,6 @@ void Ajouter_tache()
     numTache++;
     printf(" la tache ajoutee avec succes.\n");
 }
-
 // ################ Afficher #################
 void Affichage_tache()
 {
@@ -83,6 +82,7 @@ void Affichage_tache()
     }
 }
 
+//  ################ Modifier #################
 void Modifier_tache()
 {
     char nv_nom[50];
@@ -136,6 +136,7 @@ void Modifier_tache()
     }
 }
 
+//  ################ Supprimer #################
 void Supprimer_tache()
 {
     char nv_nom[50];
@@ -160,6 +161,9 @@ void Supprimer_tache()
     if (i == numTache)
         printf("Tache de titre %s non trouvee.\n", nv_nom);
 }
+
+//  ################ Ordonner #################
+
 void OrdonnerDate()
 {
     Tache temp;
@@ -180,7 +184,7 @@ void OrdonnerDate()
     }
     printf("Les tache a ete trie par Date d'echeance.\n ");
 }
-
+//  ################ Filtrer par prioriter #################
 
 void FiltrerParPrioriter()
 {
@@ -249,6 +253,7 @@ void FiltrerParDate()
     }
 }
 
+//  ################ Menu #################
 void menu()
 {
     int choix;
