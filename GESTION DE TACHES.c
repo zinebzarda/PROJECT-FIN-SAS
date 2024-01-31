@@ -135,3 +135,28 @@ void Modifier_tache()
         }
     }
 }
+
+void Supprimer_tache()
+{
+    char nv_nom[50];
+    printf("Entrer le titre de la tache a supprimer : ");
+    scanf(" %[^\n]s", nv_nom);
+
+    int i;
+    for (i = 0; i < numTache; i++)
+    {
+        if (strcmp(listTache[i].nom, nv_nom) == 0)
+        {
+            for (int j = i; j < numTache - 1; j++)
+            {
+                strcpy(listTache[j].nom, listTache[j + 1].nom);
+            }
+            numTache--;
+            printf("Tache de titre %s supprimee avec succes.\n", nv_nom);
+            break;
+        }
+    }
+
+    if (i == numTache)
+        printf("Tache de titre %s non trouvee.\n", nv_nom);
+}
